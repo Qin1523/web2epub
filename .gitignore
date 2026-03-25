@@ -6,4 +6,8 @@ output/
 
 # debug artifacts
 *.epub
+*-debug/.DS_Store
+output/
+node_modules/
+*.epub
 *-debug/
