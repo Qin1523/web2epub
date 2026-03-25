@@ -1,0 +1,15 @@
+{
+  "name": "example-blog",
+  "match": ["example.com"],
+  "contentSelector": "article.post-content",
+  "titleSelector": "h1.post-title",
+  "authorSelector": ".post-author",
+  "removeSelectors": [
+    "header",
+    "footer",
+    ".sidebar",
+    ".newsletter",
+    ".recommended-posts",
+    ".comments"
+  ]
+}
