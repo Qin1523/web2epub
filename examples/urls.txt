@@ -1,2 +1,3 @@
-https://example.com/article-1
-https://example.com/article-2
+https://www.paulgraham.com/read.html
+https://www.nationalgeographic.com/travel/national-parks/article/glacier-national-park
+https://docs.python.org/3/tutorial/introduction.html
