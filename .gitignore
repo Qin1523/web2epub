@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# output
+output/
+
+# debug artifacts
+*.epub
+*-debug/
