@@ -65,6 +65,12 @@ node ./src/cli.js "https://example.com/1" "https://example.com/2" --mode merge -
 ```bash
 node ./src/cli.js --input ./examples/urls.txt --mode merge --title "批量合集"
 ```
+### 使用站点规则（Profile） / Using site profile
+```bash
+node ./src/cli.js "https://docs.python.org/3/tutorial/introduction.html" \
+--title "with profile" \
+--site-profile ./examples/site-profile.example.json
+```
 ### 指定封面和输出 / Cover & output
 ```bash
 node ./src/cli.js "https://example.com/article" --cover ./cover.jpg --output ./output/demo.epub
