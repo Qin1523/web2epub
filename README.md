@@ -23,6 +23,15 @@ A local CLI tool that converts web pages into EPUB with a focus on **clean readi
 
 ---
 
+## ⚙️ Requirements / 环境要求
+	•	Node.js 20.11+
+	•	npm 10+
+
+依赖锁定在 package.json 和 package-lock.json，克隆或上传到 GitHub 后，macOS 和 Windows 可使用相同命令安装。
+Dependencies are locked via package.json and package-lock.json, ensuring consistent installation across macOS and Windows.
+
+---
+
 ## ⚙️ Installation / 安装
 
 ```bash
@@ -131,15 +140,6 @@ web2epub "https://example.com/article"
 	•	src/epub.js：EPUB 构建 / EPUB builder
 	•	src/profiles/：站点规则 / site profiles
 	•	scripts/smoke.js：测试脚本 / smoke test
-
----
-
-## ⚙️ Requirements / 环境要求
-	•	Node.js 20.11+
-	•	npm 10+
-
-依赖锁定在 package.json 和 package-lock.json，克隆或上传到 GitHub 后，macOS 和 Windows 可使用相同命令安装。
-Dependencies are locked via package.json and package-lock.json, ensuring consistent installation across macOS and Windows.
 
 ---
 
