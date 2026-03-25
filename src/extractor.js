@@ -92,7 +92,15 @@ export function extractReadableContent(sourceData, profile, options, logger) {
     node.remove();
   });
 
-  applyProfileCleanup(document, profile, logger);
+  let removedNodeCount = 0;
+
+  if (profile) {
+    removedNodeCount = applyProfileCleanup(document, profile, logger);
+
+    // 只在 profile 存在时打印
+    logger.info(`[profile] matched domain: ${sourceData.sourceUrl}`);
+    logger.info(`[profile] removed ${removedNodeCount} nodes`);
+  }
 
   const profileArticle = buildArticleFromSelector(document, profile);
   const readabilityArticle =

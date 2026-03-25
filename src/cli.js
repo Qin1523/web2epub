@@ -103,7 +103,11 @@ async function main() {
   for (const [index, source] of sources.entries()) {
     logger.info(`Processing ${source.value}`);
     const sourceData = await loadTextSource(source, options, logger);
-    const profile = await resolveSiteProfile(options.siteProfile, sourceData.sourceUrl, logger);
+    const resolvedProfile = await resolveSiteProfile(options.siteProfile, sourceData.sourceUrl, logger);
+
+    const profile = resolvedProfile?.profile || resolvedProfile;
+    const matchedDomain = resolvedProfile?.matchedDomain;
+    const profileApplied = resolvedProfile?.applied;
     const extracted = extractReadableContent(sourceData, profile, options, logger);
     const chapterHtml = await imageAssets.embedInHtml(extracted.cleanedHtml, sourceData);
 
