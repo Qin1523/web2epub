@@ -45,6 +45,10 @@ Windows
 ```
 setup.cmd
 ```
+Check if the installation was successful
+```
+npm run smoke
+```
 ---
 
 ## 🚀 Quick Start / 快速开始
