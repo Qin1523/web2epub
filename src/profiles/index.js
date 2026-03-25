@@ -50,7 +50,12 @@ export async function resolveSiteProfile(siteProfile, sourceUrl, logger) {
       const content = await fs.readFile(maybePath, "utf8");
       const profile = JSON.parse(content);
       profile.name ||= path.basename(maybePath, path.extname(maybePath));
-      return profile;
+      const hostname = isUrl(sourceUrl) ? new URL(sourceUrl).hostname : null;
+      return {
+        profile,
+        matchedDomain: hostname || profile.name,
+        applied: true,
+      };
     } catch (error) {
       if (BUILTIN_PROFILES[siteProfile]) {
         return BUILTIN_PROFILES[siteProfile];
@@ -78,11 +83,16 @@ export async function resolveSiteProfile(siteProfile, sourceUrl, logger) {
 }
 
 export function applyProfileCleanup(document, profile, logger) {
+    let removedCount = 0;
   for (const selector of toArray(profile?.removeSelectors)) {
     try {
-      document.querySelectorAll(selector).forEach((node) => node.remove());
+      const nodes = document.querySelectorAll(selector);
+      removedCount += nodes.length;
+      nodes.forEach((node) => node.remove());
     } catch (error) {
       logger?.warn(`Invalid remove selector "${selector}": ${error.message}`);
     }
   }
+
+  return removedCount;
 }
